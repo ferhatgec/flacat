@@ -11,15 +11,8 @@ except(version) : 0.3 -> { error("Huh. Install new version of FlaScript") print(
 
 /> TODO: Add statements for language parser </
 
-main() -> main {
-    var(string) ->  sample_ -> input_file <-
-    
-    print(string) -> "File: "
 
-    @input -> input_file <
-
-    @readfile -> input_file -> var(input_file) <
-
+func -> FlaScript() {
     @replace_all -> input_file : "var" -> "\033[1;34mvar\033[0m" <
     
     @replace_all -> input_file : "bool" -> "\033[1;94mbool\033[0m" <
@@ -60,6 +53,26 @@ main() -> main {
     @replace_all -> input_file : "print" -> "\033[1;36mprint\033[0m" <
     @replace_all -> input_file : "fprintf" -> "\033[1;36mfprintf\033[0m" <
     @replace_all -> input_file : "fprintln" -> "\033[1;36mfprintln\033[0m" <
+
+} FlaScript;
+
+#flascript_syntax ->
+    if[find(var(input_file), ".fls")] -> {
+        func -> FlaScript()      
+    } else -> {} <-
+#flascript_syntax <-
+
+
+main() -> main {
+    var(string) ->  sample_ -> input_file <-
+    
+    print(string) -> "File: "
+
+    @input -> input_file <
+
+    @readfile -> input_file -> var(input_file) <
+    
+    statement[#flascript_syntax]
 
     @echo -> input_file <-
 } main;
