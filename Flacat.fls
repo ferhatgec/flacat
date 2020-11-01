@@ -11,68 +11,142 @@ except(version) : 0.3 -> { error("Huh. Install new version of FlaScript") print(
 
 /> TODO: Add statements for language parser </
 
+func -> CPlusPlus() {
+    print(string) -> "C++"
+
+    @replace_all -> data_ : "int" -> "\033[1;34mint\033[0m" <
+    @replace_all -> data_ : "long" -> "\033[1;34mlong\033[0m" <    
+    @replace_all -> data_ : "bool" -> "\033[1;34mbool\033[0m" <
+    @replace_all -> data_ : "char" -> "\033[1;34mchar\033[0m" <
+    @replace_all -> data_ : "auto" -> "\033[1;34mauto\033[0m" <
+
+    @replace_all -> data_ : "if " -> "\033[1;91mif\033[0m" <
+    @replace_all -> data_ : "else" -> "\033[1;91melse\033[0m" <
+
+    
+    @replace_all -> data_ : "for" -> "\033[1;35mfor\033[0m" <
+    @replace_all -> data_ : "do " -> "\033[1;35mdo\033[0m" <
+    @replace_all -> data_ : "while" -> "\033[1;35mwhile\033[0m" <
+
+    @replace_all -> data_ : "void" -> "\033[1;31mvoid\033[0m" <
+    @replace_all -> data_ : "main" -> "\033[1;91mmain\033[0m" <
+    @replace_all -> data_ : "asm" -> "\033[1;91masm\033[0m" <
+    
+    @replace_all -> data_ : "const" -> "\033[1;94mconst\033[0m" <
+    @replace_all -> data_ : "static" -> "\033[1;94mstatic\033[0m" <
+    @replace_all -> data_ : "extern" -> "\033[1;94mextern\033[0m" <
+    @replace_all -> data_ : "inline" -> "\033[1;94minline\033[0m" <
+	@replace_all -> data_ : "virtual" -> "\033[1;94mvirtual\033[0m" <
+    @replace_all -> data_ : "friend" -> "\033[1;94mfriend\033[0m" <
+    
+    @replace_all -> data_ : "public" -> "\033[1;94mpublic\033[0m" <
+    @replace_all -> data_ : "private" -> "\033[1;94mprivate\033[0m" <
+    @replace_all -> data_ : "protected" -> "\033[1;94mprotected\033[0m" <
+
+    @replace_all -> data_ : "@append" -> "\033[1;96m@append\033[0m" <
+    @replace_all -> data_ : "@pop_back" -> "\033[1;96m@pop_back\033[0m" <
+    @replace_all -> data_ : "@between" -> "\033[1;96m@between\033[0m" <
+    @replace_all -> data_ : "@readfile" -> "\033[1;96m@readfile\033[0m" <
+    @replace_all -> data_ : "@replace_all" -> "\033[1;96m@replace_all\033[0m" <
+
+
+    @replace_all -> data_ : "#include" -> "\033[1;33m#include\033[0m" <
+    
+    @replace_all -> data_ : "typedef" -> "\033[1;35mtypedef\033[0m" <
+    @replace_all -> data_ : "#define" -> "\033[1;35m#define\033[0m" <
+    @replace_all -> data_ : "#ifndef" -> "\033[1;35m#ifndef\033[0m" <
+    @replace_all -> data_ : "#Ifdef" -> "\033[1;35m#ifdef\033[0m" <
+    
+    @replace_all -> data_ : "return" -> "\033[1;95mreturn\033[0m" <
+    
+    @replace_all -> data_ : "nodiscard" -> "\033[1;90mnodiscard\033[0m" <
+
+    @replace_all -> data_ : "class" -> "\033[1;93mclass\033[0m" <
+    @replace_all -> data_ : "struct" -> "\033[1;93mstruct\033[0m" <
+    @replace_all -> data_ : "namespace" -> "\033[1;93mnamespace\033[0m" <    
+    
+    @replace_all -> data_ : "class" -> "\033[1;92musing\033[0m" <
+    @replace_all -> data_ : "std" -> "\033[1;93mstd\033[0m" <
+
+    @replace_all -> data_ : "iostream" -> "\033[1;95miostream\033[0m" <        
+    @replace_all -> data_ : "cstring" -> "\033[1;95mcstring\033[0m" <
+    @replace_all -> data_ : "sstream" -> "\033[1;95msstream\033[0m" <
+    @replace_all -> data_ : "fstream" -> "\033[1;95mfstream\033[0m" <
+    @replace_all -> data_ : "iostream" -> "\033[1;95miostream\033[0m" <
+
+    @replace_all -> data_ : "newline" -> "\033[1;95mnewline\033[0m" <
+
+    @replace_all -> data_ : "print" -> "\033[1;36mprint\033[0m" <
+    @replace_all -> data_ : "fprintf" -> "\033[1;36mfprintf\033[0m" <
+    @replace_all -> data_ : "fprintln" -> "\033[1;36mfprintln\033[0m" <
+} CPlusPlus;
 
 func -> FlaScript() {
-    @replace_all -> input_file : "var" -> "\033[1;34mvar\033[0m" <
+    @replace_all -> data_ : "var" -> "\033[1;34mvar\033[0m" <
     
-    @replace_all -> input_file : "bool" -> "\033[1;94mbool\033[0m" <
-    @replace_all -> input_file : "(int)" -> "\033[1;94m(int)\033[0m" <
-    @replace_all -> input_file : "string" -> "\033[1;94mstring\033[0m" <
+    @replace_all -> data_ : "bool" -> "\033[1;94mbool\033[0m" <
+    @replace_all -> data_ : "(int)" -> "\033[1;94m(int)\033[0m" <
+    @replace_all -> data_ : "string" -> "\033[1;94mstring\033[0m" <
 
-    @replace_all -> input_file : "if " -> "\033[1;91mif\033[0m" <
-    @replace_all -> input_file : "else" -> "\033[1;91melse\033[0m" <
+    @replace_all -> data_ : "if " -> "\033[1;91mif\033[0m" <
+    @replace_all -> data_ : "else" -> "\033[1;91melse\033[0m" <
 
     
-    @replace_all -> input_file : "for" -> "\033[1;35mfor\033[0m" <
-    @replace_all -> input_file : "do " -> "\033[1;35mdo\033[0m" <
-    @replace_all -> input_file : "while" -> "\033[1;35mwhile\033[0m" <
+    @replace_all -> data_ : "for" -> "\033[1;35mfor\033[0m" <
+    @replace_all -> data_: "do " -> "\033[1;35mdo\033[0m" <
+    @replace_all -> data_ : "while" -> "\033[1;35mwhile\033[0m" <
 
-    @replace_all -> input_file : "func" -> "\033[1;31mfunc\033[0m" <
-    @replace_all -> input_file : "main" -> "\033[1;91m main\033[0m" <
+    @replace_all -> data_ : "func" -> "\033[1;31mfunc\033[0m" <
+    @replace_all -> data_ : "main" -> "\033[1;91m main\033[0m" <
 
-    @replace_all -> input_file : "@append" -> "\033[1;96m@append\033[0m" <
-    @replace_all -> input_file : "@pop_back" -> "\033[1;96m@pop_back\033[0m" <
-    @replace_all -> input_file : "@between" -> "\033[1;96m@between\033[0m" <
-    @replace_all -> input_file : "@readfile" -> "\033[1;96m@readfile\033[0m" <
-    @replace_all -> input_file : "@replace_all" -> "\033[1;96m@replace_all\033[0m" <
+    @replace_all -> data_ : "@append" -> "\033[1;96m@append\033[0m" <
+    @replace_all -> data_ : "@pop_back" -> "\033[1;96m@pop_back\033[0m" <
+    @replace_all -> data_ : "@between" -> "\033[1;96m@between\033[0m" <
+    @replace_all -> data_ : "@readfile" -> "\033[1;96m@readfile\033[0m" <
+    @replace_all -> data_ : "@replace_all" -> "\033[1;96m@replace_all\033[0m" <
 
-    @replace_all -> input_file : "import" -> "\033[1;33mimport\033[0m" <
+    @replace_all -> data_ : "import" -> "\033[1;33mimport\033[0m" <
 
-    @replace_all -> input_file : "defin" -> "\033[1;35mdefin\033[0m" <
+    @replace_all -> data_ : "defin" -> "\033[1;35mdefin\033[0m" <
     
-    @replace_all -> input_file : "return" -> "\033[1;95mreturn\033[0m" <
-    @replace_all -> input_file : "#ifdef" -> "\033[1;35m#ifdef\033[0m" <
-    @replace_all -> input_file : "#endif" -> "\033[1;35m#endif\033[0m" <
+    @replace_all -> data_ : "return" -> "\033[1;95mreturn\033[0m" <
+    @replace_all -> data_ : "#ifdef" -> "\033[1;35m#ifdef\033[0m" <
+    @replace_all -> data_ : "#endif" -> "\033[1;35m#endif\033[0m" <
     
-
-    @replace_all -> input_file : "SystemInfo" -> "\033[1;95mSystemInfo\033[0m" <
-    @replace_all -> input_file : "Colorized" -> "\033[1;95mColorized\033[0m" <
+    @replace_all -> data_ : "SystemInfo" -> "\033[1;95mSystemInfo\033[0m" <
+    @replace_all -> data_ : "Colorized" -> "\033[1;95mColorized\033[0m" <
     
-    @replace_all -> input_file : "newline" -> "\033[1;95mnewline\033[0m" <
+    @replace_all -> data_ : "newline" -> "\033[1;95mnewline\033[0m" <
 
-    @replace_all -> input_file : "print" -> "\033[1;36mprint\033[0m" <
-    @replace_all -> input_file : "fprintf" -> "\033[1;36mfprintf\033[0m" <
-    @replace_all -> input_file : "fprintln" -> "\033[1;36mfprintln\033[0m" <
-
+    @replace_all -> data_ : "print" -> "\033[1;36mprint\033[0m" <
+    @replace_all -> data_ : "fprintf" -> "\033[1;36mfprintf\033[0m" <
+    @replace_all -> data_ : "fprintln" -> "\033[1;36mfprintln\033[0m" <
 } FlaScript;
+
+#cplusplus_syntax ->
+    if[find(var(input_file), ".cpp")] -> {
+        func -> CPlusPlus()      
+    } else -> {} <-
+#cplusplus_syntax <-
 
 #flascript_syntax ->
     if[find(var(input_file), ".fls")] -> {
         func -> FlaScript()      
-    } else -> {} <-
+    } else -> { statement[#cplusplus_syntax] } <-
 #flascript_syntax <-
 
 
 main() -> main {
     var(string) ->  sample_ -> input_file <-
-    
+    var(string) ->  sample_2 -> data_ <-
+
     print(string) -> "File: "
 
     @input -> input_file <
-
-    @readfile -> input_file -> var(input_file) <
     
+    @readfile -> data_ -> var(input_file) <
+        
     statement[#flascript_syntax]
 
-    @echo -> input_file <-
+    @echo -> data_ <-
 } main;
