@@ -89,8 +89,6 @@ func -> CPlusPlus() {
     @replace_all -> data_ : "istream" -> "\033[1;95mistream\033[0m" <
     @replace_all -> data_ : "ostream" -> "\033[1;95mostream\033[0m" <
 
-    \033[1;36m"
-
     @replace_all -> data_ : "cout" -> "\033[1;36mcout\033[0m" <
     @replace_all -> data_ : "getline" -> "\033[1;36mgetline\033[0m" <
     @replace_all -> data_ : "printf" -> "\033[1;36mprintf\033[0m" <
