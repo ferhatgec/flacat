@@ -12,8 +12,6 @@ except(version) : 0.3 -> { error("Huh. Install new version of FlaScript") print(
 /> TODO: Add statements for language parser </
 
 func -> CPlusPlus() {
-    print(string) -> "C++"
-
     @replace_all -> data_ : "int" -> "\033[1;34mint\033[0m" <
     @replace_all -> data_ : "long" -> "\033[1;34mlong\033[0m" <    
     @replace_all -> data_ : "bool" -> "\033[1;34mbool\033[0m" <
@@ -72,7 +70,24 @@ func -> CPlusPlus() {
     @replace_all -> data_ : "cstring" -> "\033[1;95mcstring\033[0m" <
     @replace_all -> data_ : "sstream" -> "\033[1;95msstream\033[0m" <
     @replace_all -> data_ : "fstream" -> "\033[1;95mfstream\033[0m" <
-    @replace_all -> data_ : "iostream" -> "\033[1;95miostream\033[0m" <
+    @replace_all -> data_ : "memory" -> "\033[1;95mmemory\033[0m" <
+    @replace_all -> data_ : "cstdlib" -> "\033[1;95mcstdlib\033[0m" <
+    @replace_all -> data_ : "cstdio" -> "\033[1;95mcstdio\033[0m" <
+    @replace_all -> data_ : "vector" -> "\033[1;95mvector\033[0m" <
+    @replace_all -> data_ : "algoritm" -> "\033[1;95malgorithm\033[0m" <
+    @replace_all -> data_ : "thread" -> "\033[1;95mthread\033[0m" <
+    @replace_all -> data_ : "array" -> "\033[1;95marray\033[0m" <
+    @replace_all -> data_ : "bitset" -> "\033[1;95mbitset\033[0m" <
+    @replace_all -> data_ : "deque" -> "\033[1;95mdeque\033[0m" <
+    @replace_all -> data_ : "map" -> "\033[1;95mmap\033[0m" <
+    @replace_all -> data_ : "stack" -> "\033[1;95mstack\033[0m" <
+    @replace_all -> data_ : "set" -> "\033[1;95mset\033[0m" <
+    @replace_all -> data_ : "iterator" -> "\033[1;95miterator\033[0m" <
+    @replace_all -> data_ : "tuple" -> "\033[1;95mtuple\033[0m" <
+    @replace_all -> data_ : "locale" -> "\033[1;95mlocale\033[0m" <
+    @replace_all -> data_ : "regex" -> "\033[1;95mregex\033[0m" <
+    @replace_all -> data_ : "istream" -> "\033[1;95mistream\033[0m" <
+    @replace_all -> data_ : "ostream" -> "\033[1;95mostream\033[0m" <
 
     @replace_all -> data_ : "newline" -> "\033[1;95mnewline\033[0m" <
 
