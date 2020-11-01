@@ -1,0 +1,65 @@
+/> MIT License
+#
+# Copyright (c) 2020 Ferhat Geçdoğan All Rights Reserved.
+# Distributed under the terms of the MIT License.
+# 
+</
+
+/> Check version of FlaScript (Required latest version) </
+
+except(version) : 0.3 -> { error("Huh. Install new version of FlaScript") print(newline) } version;
+
+/> TODO: Add statements for language parser </
+
+main() -> main {
+    var(string) ->  sample_ -> input_file <-
+    
+    print(string) -> "File: "
+
+    @input -> input_file <
+
+    @readfile -> input_file -> var(input_file) <
+
+    @replace_all -> input_file : "var" -> "\033[1;34mvar\033[0m" <
+    
+    @replace_all -> input_file : "bool" -> "\033[1;94mbool\033[0m" <
+    @replace_all -> input_file : "(int)" -> "\033[1;94m(int)\033[0m" <
+    @replace_all -> input_file : "string" -> "\033[1;94mstring\033[0m" <
+
+    @replace_all -> input_file : "if " -> "\033[1;91mif\033[0m" <
+    @replace_all -> input_file : "else" -> "\033[1;91melse\033[0m" <
+
+    
+    @replace_all -> input_file : "for" -> "\033[1;35mfor\033[0m" <
+    @replace_all -> input_file : "do " -> "\033[1;35mdo\033[0m" <
+    @replace_all -> input_file : "while" -> "\033[1;35mwhile\033[0m" <
+
+    @replace_all -> input_file : "func" -> "\033[1;31mfunc\033[0m" <
+    @replace_all -> input_file : "main" -> "\033[1;91m main\033[0m" <
+
+    @replace_all -> input_file : "@append" -> "\033[1;96m@append\033[0m" <
+    @replace_all -> input_file : "@pop_back" -> "\033[1;96m@pop_back\033[0m" <
+    @replace_all -> input_file : "@between" -> "\033[1;96m@between\033[0m" <
+    @replace_all -> input_file : "@readfile" -> "\033[1;96m@readfile\033[0m" <
+    @replace_all -> input_file : "@replace_all" -> "\033[1;96m@replace_all\033[0m" <
+
+    @replace_all -> input_file : "import" -> "\033[1;33mimport\033[0m" <
+
+    @replace_all -> input_file : "defin" -> "\033[1;35mdefin\033[0m" <
+    
+    @replace_all -> input_file : "return" -> "\033[1;95mreturn\033[0m" <
+    @replace_all -> input_file : "#ifdef" -> "\033[1;35m#ifdef\033[0m" <
+    @replace_all -> input_file : "#endif" -> "\033[1;35m#endif\033[0m" <
+    
+
+    @replace_all -> input_file : "SystemInfo" -> "\033[1;95mSystemInfo\033[0m" <
+    @replace_all -> input_file : "Colorized" -> "\033[1;95mColorized\033[0m" <
+    
+    @replace_all -> input_file : "newline" -> "\033[1;95mnewline\033[0m" <
+
+    @replace_all -> input_file : "print" -> "\033[1;36mprint\033[0m" <
+    @replace_all -> input_file : "fprintf" -> "\033[1;36mfprintf\033[0m" <
+    @replace_all -> input_file : "fprintln" -> "\033[1;36mfprintln\033[0m" <
+
+    @echo -> input_file <-
+} main;
