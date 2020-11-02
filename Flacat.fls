@@ -11,6 +11,15 @@ except(version) : 0.3 -> { error("Huh. Install new version of FlaScript") print(
 
 /> TODO: Add statements for language parser </
 
+func -> Regular() {
+    @replace_all -> data_ : "int" -> "\033[1;34mint\033[0m" <    
+    @replace_all -> data_ : "bool" -> "\033[1;34mbool\033[0m" <
+    @replace_all -> data_ : "char" -> "\033[1;34mchar\033[0m" <
+
+    @replace_all -> data_ : "void" -> "\033[1;31mvoid\033[0m" <
+    @replace_all -> data_ : "const" -> "\033[1;94mconst\033[0m" <
+} Regular;
+
 func -> CPlusPlus() {
     @replace_all -> data_ : "int" -> "\033[1;34mint\033[0m" <
     @replace_all -> data_ : "long" -> "\033[1;34mlong\033[0m" <    
@@ -142,7 +151,7 @@ func -> FlaScript() {
 #cplusplus_syntax ->
     if[find(var(input_file), ".cpp")] -> {
         func -> CPlusPlus()      
-    } else -> {} <-
+    } else -> { func -> Regular() } <-
 #cplusplus_syntax <-
 
 #flascript_syntax ->
