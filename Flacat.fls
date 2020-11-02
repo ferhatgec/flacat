@@ -11,6 +11,33 @@ except(version) : 0.3 -> { error("Huh. Install new version of FlaScript") print(
 
 /> TODO: Add statements for language parser </
 
+main() -> main {
+    var(string) ->  sample_ -> input_file <-
+    var(string) ->  sample_2 -> data_ <-
+
+    print(string) -> "File: "
+
+    @input -> input_file <
+    
+    @readfile -> data_ -> var(input_file) <
+        
+    statement[#flascript_syntax]
+
+    @echo -> data_ <-
+} main;
+
+#cplusplus_syntax ->
+    if[find(var(input_file), ".cpp")] -> {
+        func -> CPlusPlus()      
+    } else -> { func -> Regular() } <-
+#cplusplus_syntax <-
+
+#flascript_syntax ->
+    if[find(var(input_file), ".fls")] -> {
+        func -> FlaScript()      
+    } else -> { statement[#cplusplus_syntax] } <-
+#flascript_syntax <-
+
 func -> Regular() {
     @replace_all -> data_ : "int" -> "\033[1;34mint\033[0m" <    
     @replace_all -> data_ : "bool" -> "\033[1;34mbool\033[0m" <
@@ -148,30 +175,3 @@ func -> FlaScript() {
     @replace_all -> data_ : "fprintln" -> "\033[1;36mfprintln\033[0m" <
 } FlaScript;
 
-#cplusplus_syntax ->
-    if[find(var(input_file), ".cpp")] -> {
-        func -> CPlusPlus()      
-    } else -> { func -> Regular() } <-
-#cplusplus_syntax <-
-
-#flascript_syntax ->
-    if[find(var(input_file), ".fls")] -> {
-        func -> FlaScript()      
-    } else -> { statement[#cplusplus_syntax] } <-
-#flascript_syntax <-
-
-
-main() -> main {
-    var(string) ->  sample_ -> input_file <-
-    var(string) ->  sample_2 -> data_ <-
-
-    print(string) -> "File: "
-
-    @input -> input_file <
-    
-    @readfile -> data_ -> var(input_file) <
-        
-    statement[#flascript_syntax]
-
-    @echo -> data_ <-
-} main;
