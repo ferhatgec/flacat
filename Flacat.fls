@@ -26,10 +26,18 @@ main() -> main {
     @echo -> data_ <-
 } main;
 
+#python_syntax ->
+    if[find(var(input_file), ".py")] -> {        
+        func -> Python()
+    } else -> { func -> Regular() } <-
+#python_syntax <-
+
 #cplusplus_syntax ->
     if[find(var(input_file), ".cpp")] -> {
         func -> CPlusPlus()      
-    } else -> { func -> Regular() } <-
+    } else -> { 
+        statement[#python_syntax] 
+    } <-
 #cplusplus_syntax <-
 
 #flascript_syntax ->
@@ -175,3 +183,28 @@ func -> FlaScript() {
     @replace_all -> data_ : "fprintln" -> "\033[1;36mfprintln\033[0m" <
 } FlaScript;
 
+func -> Python() {
+    @replace_all -> data_ : "str" -> "\033[1;34mstr\033[0m" <    
+    @replace_all -> data_ : "bool" -> "\033[1;34mbool\033[0m" <
+    @replace_all -> data_ : "auto" -> "\033[1;34mauto\033[0m" <
+    @replace_all -> data_ : "float" -> "\033[1;34mfloat\033[0m" <
+
+    @replace_all -> data_ : "if " -> "\033[1;91mif\033[0m" <
+    @replace_all -> data_ : "else" -> "\033[1;91melse\033[0m" <
+    @replace_all -> data_ : "elif " -> "\033[1;91melif\033[0m" <
+    
+    @replace_all -> data_ : "for" -> "\033[1;35mfor\033[0m" <
+    @replace_all -> data_ : "while" -> "\033[1;35mwhile\033[0m" <
+
+    @replace_all -> data_ : "def" -> "\033[1;31mdef\033[0m" <
+    @replace_all -> data_ : "lambda" -> "\033[1;91mlambda\033[0m" <
+     
+    @replace_all -> data_ : "global" -> "\033[1;94mpublic\033[0m" <
+
+    @replace_all -> data_ : "import" -> "\033[1;33mimport\033[0m" <
+    @replace_all -> data_ : "from" -> "\033[1;93mfrom\033[0m" <
+
+    @replace_all -> data_ : "return" -> "\033[1;95mreturn\033[0m" <
+
+    @replace_all -> data_ : "print" -> "\033[1;36mprint\033[0m" <
+} Python;
