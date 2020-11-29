@@ -231,16 +231,26 @@ func -> Python() {
 
 // Shell Script & Bash
 func -> Shell_Script() {
+    @replace_all -> data_ : "gcc" -> "\033[1;96mgcc\033[0m" <
+    @replace_all -> data_ : "fla" -> "\033[1;96mfla\033[0m" <
+    @replace_all -> data_ : "clang" -> "\033[1;96mclang\033[0m" <
+    @replace_all -> data_ : "g++" -> "\033[1;96mg++\033[0m" <
+    @replace_all -> data_ : "c++" -> "\033[1;96mc++\033[0m" <
+    @replace_all -> data_ : "sudo" -> "\033[1;96msudo\033[0m" <
+    @replace_all -> data_ : "valgrind" -> "\033[1;96mvalgrind\033[0m" <
+    @replace_all -> data_ : "freebrain" -> "\033[1;96mfreebrain\033[0m" <
+    
+    
     @replace_all -> data_ : "if " -> "\033[1;91mif\033[0m" <
-    @replace_all -> data_ : "fi " -> "\033[1;91mif\033[0m" <
+    @replace_all -> data_ : "fi " -> "\033[1;91mfi\033[0m" <
     @replace_all -> data_ : "else" -> "\033[1;91melse\033[0m" <
     @replace_all -> data_ : "elif" -> "\033[1;91melif\033[0m" <
     
-    @replace_all -> data_ : "do" -> "\033[1;91melif\033[0m" <
+    @replace_all -> data_ : "do" -> "\033[1;91mdo\033[0m" <
     
     @replace_all -> data_ : "then" -> "\033[1;92mthen\033[0m" <
     @replace_all -> data_ : "case" -> "\033[1;92mcase\033[0m" <
-    @replace_all -> data_ : "done" -> "\033[1;92melif\033[0m" <
+    @replace_all -> data_ : "done" -> "\033[1;92mdone\033[0m" <
 
     @replace_all -> data_ : "for" -> "\033[1;35mfor\033[0m" <
     @replace_all -> data_ : "while" -> "\033[1;35mwhile\033[0m" <
@@ -249,18 +259,10 @@ func -> Shell_Script() {
 
     @replace_all -> data_ : "return" -> "\033[1;95mreturn\033[0m" <
 
-    @replace_all -> data_ : "gcc" -> "\033[1;96mgcc\033[0m" <
-    @replace_all -> data_ : "fla" -> "\033[1;96mfla\033[0m" <
-    @replace_all -> data_ : "clang" -> "\033[1;96mclang\033[0m" <
-    @replace_all -> data_ : "g++" -> "\033[1;96mg++\033[0m" <
-    @replace_all -> data_ : "c++" -> "\033[1;96mc++\033[0m" <
-    @replace_all -> data_ : "valgrind" -> "\033[1;96mvalgrind\033[0m" <
-    @replace_all -> data_ : "freebrain" -> "\033[1;96mset\033[0m" <
-    
     @replace_all -> data_ : "shopt" -> "\033[1;36mshopt\033[0m" <
     @replace_all -> data_ : "set" -> "\033[1;36mset\033[0m" <
     @replace_all -> data_ : "exit" -> "\033[1;36mexit\033[0m" <
     @replace_all -> data_ : "cd" -> "\033[1;36mcd\033[0m" <
     @replace_all -> data_ : "cat" -> "\033[1;36mcat\033[0m" <
-    @replace_all -> data_ : "printf" -> "\033[1;36mprint\033[0m" <
+    @replace_all -> data_ : "printf" -> "\033[1;36mprintf\033[0m" <
 } Shell_Script;
