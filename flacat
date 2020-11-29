@@ -25,6 +25,8 @@ main() -> main {
         
     statement[#flascript_syntax]
 
+	/> Parse escape sequences </
+    @escape_seq -> data_ <
     @echo -> data_ <-
 } main;
 
