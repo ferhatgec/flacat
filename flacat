@@ -19,7 +19,7 @@ main() -> main {
 
     print(string) -> "File: "
 
-    @input -> input_file <
+    @input(string) -> input_file <
     
     @readfile -> data_ -> var(input_file) <
         
@@ -27,6 +27,7 @@ main() -> main {
 
 	/> Parse escape sequences </
     @escape_seq -> data_ <
+    
     @echo -> data_ <-
 } main;
 
